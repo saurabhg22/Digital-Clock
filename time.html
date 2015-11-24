@@ -2,15 +2,21 @@
 	<head>
 		<title>Timer</title>
 		<style>
-			h1#clock {
-				background: 	#DBA901;
-				width:      	280px;
-				height:     	150px;
-				position:   	absolute;
-				left:			470px;
-				border:			2px solid #000000;
-				padding-left:	100px;
-				padding-top:	80px;
+			div#clock {
+				background-color: 	#000;
+				border:				10px solid #999;
+				position:   		absolute;
+				left:				50%;
+				top:				50%;
+				transform: 			translate(-50%,-50%);
+				padding-top:		20px;
+				padding-left:		40px;
+				padding-bottom:		20px;
+				padding-right:		40px;
+				color: 				#0FF;
+				font-family:   	 	"Arial Black", Gadget, sans-serif;
+				font-size:			80px;
+				font-weight:		bold;
 			}
 		</style>
 		<script type = "text/javascript">
@@ -32,8 +38,8 @@
 			}
 		</script>
 	</head>
-	<body onload = "time()">
-		<h1 id = "clock">
-		</h1>
+	<body onload = "time()" style =  "background-color:#E9ECAE">
+		<center><div id = "clock">
+		</div></center>
 	</body>
 </html>
