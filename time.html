@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<title>Timer</title>
+		<style>
+			h1#clock {
+				background: 	#DBA901;
+				width:      	280px;
+				height:     	150px;
+				position:   	absolute;
+				left:			470px;
+				border:			2px solid #000000;
+				padding-left:	100px;
+				padding-top:	80px;
+			}
+		</style>
+		<script type = "text/javascript">
+			function time(){
+				var now = new Date();
+				var hr = now.getHours(), min = checkTime(now.getMinutes()), sec = checkTime(now.getSeconds());
+				if (hr>12){
+					var t = "PM";
+					hr-=12;
+				}
+				else
+					var t = "AM"
+				document.getElementById('clock').innerHTML = checkTime(hr) + ":" + min + ":" + sec + " " + t;
+				var t = setTimeout(time, 1000);
+			}
+			function checkTime(i) {
+				if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+				return i;
+			}
+		</script>
+	</head>
+	<body onload = "time()">
+		<h1 id = "clock">
+		</h1>
+	</body>
+</html>
