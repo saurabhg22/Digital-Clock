@@ -8,10 +8,6 @@
 				var now = new Date();
 				var hr = now.getHours(), min = checkTime(now.getMinutes()), sec = checkTime(now.getSeconds());
 				var day = day_name(now.getDay()), yr = now.getFullYear(), date = now.getDate(), month = month_name(now.getMonth());
-				if (ms<10)
-					ms = "00" + ms;
-				else if(ms<100)
-					ms = "0" + ms;
 				if (hr>12){
 					var t = "pm";
 					hr-=12;
