@@ -6,7 +6,7 @@
 		<script type = "text/javascript">
 			function time(){
 				var now = new Date();
-				var hr = now.getHours(), min = checkTime(now.getMinutes()), sec = checkTime(now.getSeconds()),ms = now.getMilliseconds();
+				var hr = now.getHours(), min = checkTime(now.getMinutes()), sec = checkTime(now.getSeconds());
 				var day = day_name(now.getDay()), yr = now.getFullYear(), date = now.getDate(), month = month_name(now.getMonth());
 				if (ms<10)
 					ms = "00" + ms;
@@ -21,7 +21,7 @@
 				document.getElementById('clock').innerHTML = checkTime(hr) + ":" + min + ":" + sec;
 				document.getElementById('dm').innerHTML = t;
 				document.getElementById('date').innerHTML = day + " " + checkTime(date) + " " + month + " " + yr;
-				var t = setTimeout(time, 1);
+				var t = setTimeout(time, 1000);
 			}
 			function checkTime(i) {
 				if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
