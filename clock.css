@@ -1,0 +1,33 @@
+div#clock{
+	position:   	absolute;
+	top:			20%;
+	left:			47%;
+	transform:		translate(-50%,-50%);
+	color: 			#FFF;
+	font: 			90px arial;
+	font-weight:	100;
+	text-align:		center;	
+}
+p#dm{
+	position:   	absolute;
+	top:			9%;
+	left:			60%;
+	color:			#FFF;
+	font: 			50px arial;
+	font-weight:	100;
+}
+p#date{
+	position:   	absolute;
+	top:			23%;
+	left:			50%;
+	transform:		translate(-50%,0%);
+	color:			#FFF;
+	font: 			30px arial;
+	font-weight:	100;
+}
+hr{
+	position:   	absolute;
+	top:			35%;
+	left:			3%;
+	width:			94%;
+}

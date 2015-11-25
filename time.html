@@ -1,45 +1,65 @@
+<!doctype html>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="clock.css"/>
 		<title>Timer</title>
-		<style>
-			div#clock {
-				background-color: 	#000;
-				border:				10px solid #999;
-				position:   		absolute;
-				left:				50%;
-				top:				50%;
-				transform: 			translate(-50%,-50%);
-				padding-top:		20px;
-				padding-left:		40px;
-				padding-bottom:		20px;
-				padding-right:		40px;
-				color: 				#0FF;
-				font-family:   	 	"Arial Black", Gadget, sans-serif;
-				font-size:			80px;
-				font-weight:		bold;
-			}
-		</style>
 		<script type = "text/javascript">
 			function time(){
 				var now = new Date();
-				var hr = now.getHours(), min = checkTime(now.getMinutes()), sec = checkTime(now.getSeconds());
+				var hr = now.getHours(), min = checkTime(now.getMinutes()), sec = checkTime(now.getSeconds()),ms = now.getMilliseconds();
+				var day = day_name(now.getDay()), yr = now.getFullYear(), date = now.getDate(), month = month_name(now.getMonth());
+				if (ms<10)
+					ms = "00" + ms;
+				else if(ms<100)
+					ms = "0" + ms;
 				if (hr>12){
-					var t = "PM";
+					var t = "pm";
 					hr-=12;
 				}
 				else
-					var t = "AM"
-				document.getElementById('clock').innerHTML = checkTime(hr) + ":" + min + ":" + sec + " " + t;
-				var t = setTimeout(time, 1000);
+					var t = "am";
+				document.getElementById('clock').innerHTML = checkTime(hr) + ":" + min + ":" + sec;
+				document.getElementById('dm').innerHTML = t;
+				document.getElementById('date').innerHTML = day + " " + checkTime(date) + " " + month + " " + yr;
+				var t = setTimeout(time, 1);
 			}
 			function checkTime(i) {
 				if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
 				return i;
 			}
+			function day_name(no){
+				switch(no){
+					case 0: return "Sunday";
+					case 1: return "Monday";
+					case 2: return "Tuesday";
+					case 3: return "Wednesday";
+					case 4: return "Thursday";
+					case 5: return "Friday";
+					case 6: return "Saturday";
+				}
+			}
+			function month_name(no){
+				switch(no){
+					case  0: return "January";
+					case  1: return "Febrary";
+					case  2: return "March";
+					case  3: return "April";
+					case  4: return "May";
+					case  5: return "June";
+					case  6: return "July";
+					case  7: return "August";
+					case  8: return "September";
+					case  9: return "October";
+					case 10: return "November";
+					case 11: return "December";
+				}
+			}
 		</script>
 	</head>
-	<body onload = "time()" style =  "background-color:#E9ECAE">
-		<center><div id = "clock">
-		</div></center>
+	<body onload = "time()" style =  "background-color:#173946">
+		<div id = "clock">00:00:00</div>
+		<p id = "dm">am</p>
+		<p id = "date">Monday 01 January</p>
+		<hr/>
 	</body>
 </html>
